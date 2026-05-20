@@ -103,9 +103,10 @@ class AppTheme {
       // button theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
+          padding: EdgeInsetsGeometry.all(13),
           side: BorderSide(color: ac.AppColor.darkSecondaryBase),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
           ),
         ),
       ),
