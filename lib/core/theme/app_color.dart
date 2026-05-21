@@ -16,8 +16,10 @@ class AppColor {
   static const Color lightBackground = ap.AppPalette.marshmallow0;
 
   static const Color lightTextDefault = ap.AppPalette.cosmicore900;
-  static const Color lightTextSubtle = ap.AppPalette.roboflow500;
+  static const Color lightTextSubtle = ap.AppPalette.roboflow400;
 
+  static const Color lightEnabledBorder = ap.AppPalette.roboflow500;
+  static const Color lightFocusBorder = ap.AppPalette.cosmicore900;
   //==================
   // Dark Theme
   //==================
@@ -26,4 +28,7 @@ class AppColor {
 
   static const Color darkTextDefault = ap.AppPalette.marshmallow0;
   static const Color darkTextSubtle = ap.AppPalette.roboflow400;
+
+  static const Color darkEnabledBorder = ap.AppPalette.roboflow500;
+  static const Color darkFocusBorder = ap.AppPalette.marshmallow0;
 }
