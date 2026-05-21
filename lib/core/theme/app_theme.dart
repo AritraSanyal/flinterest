@@ -9,6 +9,7 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
+      splashFactory: NoSplash.splashFactory,
       brightness: Brightness.light,
       scaffoldBackgroundColor: ac.AppColor.lightBackground,
 
@@ -22,11 +23,12 @@ class AppTheme {
         onSecondary: ac.AppColor.lightTextDefault,
       ),
 
-      // Text Theme
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme).apply(
-        bodyColor: ac.AppColor.lightTextDefault,
-        displayColor: ac.AppColor.lightTextDefault,
-      ),
+      // Text theme
+      textTheme: GoogleFonts.googleSansFlexTextTheme(ThemeData.dark().textTheme)
+          .apply(
+            displayColor: ac.AppColor.lightTextDefault,
+            bodyColor: ac.AppColor.lightTextDefault,
+          ),
 
       // appbar theme
       appBarTheme: AppBarTheme(
@@ -40,13 +42,55 @@ class AppTheme {
         ),
       ),
 
-      // text field theme
+      //Input decoration Theme
+      inputDecorationTheme: InputDecorationThemeData(
+        contentPadding: EdgeInsetsGeometry.only(
+          left: 13,
+          right: 13,
+          top: 8,
+          bottom: 8,
+        ),
+
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: ac.AppColor.lightEnabledBorder),
+        ),
+
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: ac.AppColor.lightFocusBorder,
+            width: 2.0,
+          ),
+        ),
+        hintStyle: const TextStyle(color: ac.AppColor.lightTextSubtle),
+      ),
 
       // ElevatedButton button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: ac.AppColor.primaryBase,
+          foregroundColor: ac.AppColor.darkTextDefault,
           elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
+      ),
+
+      // OutlinedButton button theme
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          padding: EdgeInsetsGeometry.only(
+            left: 13,
+            right: 13,
+            top: 10,
+            bottom: 10,
+          ),
+          side: BorderSide(color: ac.AppColor.darkSecondaryBase),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
         ),
       ),
 
@@ -72,10 +116,11 @@ class AppTheme {
       ),
 
       // Text theme
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme).apply(
-        displayColor: ac.AppColor.darkTextDefault,
-        bodyColor: ac.AppColor.darkTextDefault,
-      ),
+      textTheme: GoogleFonts.googleSansFlexTextTheme(ThemeData.dark().textTheme)
+          .apply(
+            displayColor: ac.AppColor.darkTextDefault,
+            bodyColor: ac.AppColor.darkTextDefault,
+          ),
 
       // appbar theme
       appBarTheme: AppBarTheme(
@@ -89,21 +134,51 @@ class AppTheme {
         ),
       ),
 
+      //Input decoration Theme
+      inputDecorationTheme: InputDecorationThemeData(
+        contentPadding: EdgeInsetsGeometry.only(
+          left: 13,
+          right: 13,
+          top: 8,
+          bottom: 8,
+        ),
+
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: ac.AppColor.darkEnabledBorder),
+        ),
+
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: ac.AppColor.darkFocusBorder,
+            width: 2.0,
+          ),
+        ),
+        hintStyle: const TextStyle(color: ac.AppColor.darkTextSubtle),
+      ),
+
       // ElevatedButton button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: ac.AppColor.primaryBase,
+          foregroundColor: ac.AppColor.darkTextDefault,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(11),
           ),
         ),
       ),
 
-      // button theme
+      // OutlinedButton button theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          padding: EdgeInsetsGeometry.all(13),
+          padding: EdgeInsetsGeometry.only(
+            left: 13,
+            right: 13,
+            top: 10,
+            bottom: 10,
+          ),
           side: BorderSide(color: ac.AppColor.darkSecondaryBase),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
