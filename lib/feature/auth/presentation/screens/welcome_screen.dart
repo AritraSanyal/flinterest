@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                     left: 0,
                     right: 0,
                     child: SvgPicture.asset(
-                      'assets/flinterest_logo.svg',
+                      'assets/logo/flinterest_logo.svg',
                       height: 38,
                       width: 38,
                     ),

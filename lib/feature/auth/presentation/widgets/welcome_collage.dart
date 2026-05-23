@@ -3,7 +3,6 @@ import 'package:flinterest/feature/auth/presentation/widgets/image_clip.dart';
 
 class WelcomeCollage extends StatelessWidget {
   const WelcomeCollage({super.key, required this.screenHeight});
-
   final double screenHeight;
 
   @override
@@ -19,7 +18,7 @@ class WelcomeCollage extends StatelessWidget {
             right: 65,
             height: 100,
             width: 100,
-            child: ImageClip(passedColor: Colors.indigoAccent),
+            child: ImageClip(imagePath: 'assets/images/collage_image_5.jpg'),
           ),
 
           // Image 1
@@ -28,7 +27,7 @@ class WelcomeCollage extends StatelessWidget {
             child: SizedBox(
               height: 210,
               width: 150,
-              child: ImageClip(passedColor: Colors.red),
+              child: ImageClip(imagePath: 'assets/images/collage_image_1.jpg'),
             ),
           ),
 
@@ -39,7 +38,7 @@ class WelcomeCollage extends StatelessWidget {
             height: 150,
             width: 80,
 
-            child: ImageClip(passedColor: Colors.white),
+            child: ImageClip(imagePath: 'assets/images/collage_image_2.jpg'),
           ),
 
           // Image 3
@@ -48,7 +47,7 @@ class WelcomeCollage extends StatelessWidget {
             right: -10,
             height: 100,
             width: 80,
-            child: ImageClip(passedColor: Colors.greenAccent),
+            child: ImageClip(imagePath: 'assets/images/collage_image_3.jpg'),
           ),
 
           // Image 4
@@ -57,7 +56,7 @@ class WelcomeCollage extends StatelessWidget {
             left: -20,
             height: 120,
             width: 137,
-            child: ImageClip(passedColor: Colors.cyan),
+            child: ImageClip(imagePath: 'assets/images/collage_image_4.jpg'),
           ),
 
           // Image 6
@@ -66,7 +65,7 @@ class WelcomeCollage extends StatelessWidget {
             top: -89,
             height: 100,
             width: 120,
-            child: ImageClip(passedColor: Colors.limeAccent),
+            child: ImageClip(imagePath: 'assets/images/collage_image_6.jpg'),
           ),
         ],
       ),
