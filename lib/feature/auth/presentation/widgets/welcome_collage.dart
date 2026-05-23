@@ -15,7 +15,7 @@ class WelcomeCollage extends StatelessWidget {
           // Image 5
           Positioned(
             top: 105,
-            right: 65,
+            right: 60,
             height: 100,
             width: 100,
             child: ImageClip(imagePath: 'assets/images/collage_image_5.jpg'),
@@ -61,10 +61,10 @@ class WelcomeCollage extends StatelessWidget {
 
           // Image 6
           Positioned(
-            right: -10,
+            right: -5,
             top: -89,
             height: 100,
-            width: 120,
+            width: 110,
             child: ImageClip(imagePath: 'assets/images/collage_image_6.jpg'),
           ),
         ],
