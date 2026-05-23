@@ -108,7 +108,7 @@ class WelcomeScreen extends StatelessWidget {
                           children: [
                             // google svg
                             SvgPicture.asset(
-                              'assets/google.svg',
+                              'assets/logo/google.svg',
                               height: 25,
                               width: 25,
                             ),
