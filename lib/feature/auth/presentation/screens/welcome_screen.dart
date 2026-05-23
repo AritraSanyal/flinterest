@@ -1,4 +1,4 @@
-import 'package:flinterest/core/theme/app_spacing.dart' as sp;
+import 'package:flinterest/core/const/app_spacing.dart' as sp;
 import 'package:flinterest/feature/auth/presentation/widgets/welcome_collage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
