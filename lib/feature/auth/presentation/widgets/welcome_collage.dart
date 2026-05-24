@@ -12,16 +12,25 @@ class WelcomeCollage extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         children: [
-          // Image 5
+          // Image 5: woman with brush
           Positioned(
             top: 105,
-            right: 60,
-            height: 100,
-            width: 100,
+            right: 70,
+            height: 80,
+            width: 70,
             child: ImageClip(imagePath: 'assets/images/collage_image_5.jpg'),
           ),
 
-          // Image 1
+          // Image 4: baige sofa
+          Positioned(
+            top: -30,
+            left: -20,
+            height: 120,
+            width: 137,
+            child: ImageClip(imagePath: 'assets/images/collage_image_4.jpg'),
+          ),
+
+          // Image 1: lady with skirt
           Align(
             alignment: .center,
             child: SizedBox(
@@ -31,7 +40,7 @@ class WelcomeCollage extends StatelessWidget {
             ),
           ),
 
-          // Image 2
+          // Image 2: cookie and plate
           Positioned(
             bottom: 0,
             left: -10,
@@ -41,22 +50,13 @@ class WelcomeCollage extends StatelessWidget {
             child: ImageClip(imagePath: 'assets/images/collage_image_2.jpg'),
           ),
 
-          // Image 3
+          // Image 3: vase and all
           Positioned(
             bottom: 20,
-            right: -10,
+            right: -25,
             height: 100,
-            width: 80,
+            width: 100,
             child: ImageClip(imagePath: 'assets/images/collage_image_3.jpg'),
-          ),
-
-          // Image 4
-          Positioned(
-            top: -20,
-            left: -20,
-            height: 120,
-            width: 137,
-            child: ImageClip(imagePath: 'assets/images/collage_image_4.jpg'),
           ),
 
           // Image 6
