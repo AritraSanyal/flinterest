@@ -1,4 +1,5 @@
 import 'package:flinterest/core/const/app_spacing.dart' as sp;
+import 'package:flinterest/feature/auth/presentation/widgets/continue_with_google_button.dart';
 import 'package:flinterest/feature/auth/presentation/widgets/welcome_collage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -96,35 +97,7 @@ class WelcomeScreen extends StatelessWidget {
                     // ======================
                     // Continue with google
                     // ======================
-                    SizedBox(
-                      width: double.infinity,
-                      // height: ,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          print('Continue with google');
-                        },
-                        child: Stack(
-                          alignment: .centerLeft,
-                          children: [
-                            // google svg
-                            SvgPicture.asset(
-                              'assets/logo/google.svg',
-                              height: 25,
-                              width: 25,
-                            ),
-                            // text
-                            Align(
-                              alignment: .center,
-                              child: Text(
-                                'Continue with Google',
-                                style: Theme.of(context).textTheme.bodyMedium
-                                    ?.copyWith(fontSize: 15, fontWeight: .w600),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    ContinueWithGoogleButton(),
                   ],
                 ),
               ),
