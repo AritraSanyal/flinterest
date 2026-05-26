@@ -90,7 +90,10 @@ class AppTheme {
             top: 10,
             bottom: 10,
           ),
-          side: BorderSide(color: ac.AppColor.darkSecondaryBase),
+          side: const BorderSide(
+            width: 1.2,
+            color: ac.AppColor.lightEnabledBorder,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -192,7 +195,10 @@ class AppTheme {
             top: 10,
             bottom: 10,
           ),
-          side: BorderSide(color: ac.AppColor.darkSecondaryBase),
+          side: const BorderSide(
+            width: 1.2,
+            color: ac.AppColor.darkEnabledBorder,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
