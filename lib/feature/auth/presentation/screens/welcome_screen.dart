@@ -1,12 +1,26 @@
 import 'package:flinterest/core/const/app_spacing.dart' as sp;
 import 'package:flinterest/feature/auth/presentation/widgets/continue_with_google_button.dart';
+import 'package:flinterest/feature/auth/presentation/widgets/input_field.dart';
 import 'package:flinterest/feature/auth/presentation/widgets/welcome_collage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  final TextEditingController _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +83,10 @@ class WelcomeScreen extends StatelessWidget {
                     // ======================
                     // email
                     // ======================
-                    TextField(
-                      decoration: InputDecoration(hintText: 'Email address'),
+                    InputField(
+                      hintText: 'Enter email address',
+                      controller: _emailController,
                     ),
-
                     sp.AppSpacing.gapVlg,
 
                     // ======================
