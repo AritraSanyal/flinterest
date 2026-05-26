@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class InputField extends StatefulWidget {
   final String hintText;
@@ -30,11 +31,18 @@ class _InputFieldState extends State<InputField> {
         _isFocused = _focusNode.hasFocus;
       });
     });
+
+    widget.controller.addListener(_onTextChanged);
+  }
+
+  void _onTextChanged() {
+    setState(() {});
   }
 
   @override
   void dispose() {
     _focusNode.dispose();
+    widget.controller.removeListener(_onTextChanged);
     super.dispose();
   }
 
@@ -54,7 +62,7 @@ class _InputFieldState extends State<InputField> {
       );
     }
 
-    if (_isFocused) {
+    if (_isFocused && widget.controller.text.isNotEmpty) {
       return IconButton(
         onPressed: () {
           setState(() {
