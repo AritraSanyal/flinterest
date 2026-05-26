@@ -20,6 +20,9 @@ class AppColor {
 
   static const Color lightEnabledBorder = ap.AppPalette.roboflow500;
   static const Color lightFocusBorder = ap.AppPalette.cosmicore900;
+
+  static const Color lightDivider = ap.AppPalette.roboflow200;
+
   //==================
   // Dark Theme
   //==================
@@ -31,4 +34,6 @@ class AppColor {
 
   static const Color darkEnabledBorder = ap.AppPalette.roboflow500;
   static const Color darkFocusBorder = ap.AppPalette.marshmallow0;
+
+  static const Color darkDivider = ap.AppPalette.roboflow800;
 }
