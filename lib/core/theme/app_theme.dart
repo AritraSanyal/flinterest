@@ -53,7 +53,10 @@ class AppTheme {
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: ac.AppColor.lightEnabledBorder),
+          borderSide: const BorderSide(
+            width: 1.2,
+            color: ac.AppColor.lightEnabledBorder,
+          ),
         ),
 
         focusedBorder: OutlineInputBorder(
@@ -94,7 +97,14 @@ class AppTheme {
         ),
       ),
 
-      // spacing???
+      // Divider theme
+      dividerTheme: DividerThemeData(
+        color: ac.AppColor.lightDivider,
+        space: 20,
+        thickness: 1.2,
+        indent: 20,
+        endIndent: 20,
+      ),
     );
   }
 
@@ -145,7 +155,10 @@ class AppTheme {
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: ac.AppColor.darkEnabledBorder),
+          borderSide: const BorderSide(
+            width: 1.2,
+            color: ac.AppColor.darkEnabledBorder,
+          ),
         ),
 
         focusedBorder: OutlineInputBorder(
@@ -184,6 +197,15 @@ class AppTheme {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
+      ),
+
+      // Divider theme
+      dividerTheme: DividerThemeData(
+        color: ac.AppColor.darkDivider,
+        space: 20,
+        thickness: 1.2,
+        indent: 20,
+        endIndent: 20,
       ),
     );
   }
