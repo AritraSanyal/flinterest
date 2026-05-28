@@ -72,8 +72,11 @@ class AppTheme {
       // ElevatedButton button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          // --- normal elevated button ---
           backgroundColor: ac.AppColor.primaryBase,
           foregroundColor: ac.AppColor.darkTextDefault,
+
+          // --- diabled elevated button ---
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -149,11 +152,9 @@ class AppTheme {
 
       //Input decoration Theme
       inputDecorationTheme: InputDecorationThemeData(
-        contentPadding: EdgeInsetsGeometry.only(
-          left: 13,
-          right: 13,
-          top: 8,
-          bottom: 8,
+        contentPadding: EdgeInsetsGeometry.symmetric(
+          horizontal: 13,
+          vertical: 8,
         ),
 
         enabledBorder: OutlineInputBorder(
@@ -164,6 +165,7 @@ class AppTheme {
           ),
         ),
 
+        // --- focused border ---
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: const BorderSide(
@@ -171,6 +173,17 @@ class AppTheme {
             width: 2.0,
           ),
         ),
+
+        // --- error border ---
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: ac.AppColor.statusError,
+            width: 2.0,
+          ),
+        ),
+
+        // --- hint style ---
         hintStyle: const TextStyle(color: ac.AppColor.darkTextSubtle),
       ),
 
