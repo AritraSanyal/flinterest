@@ -1,5 +1,5 @@
 import 'package:flinterest/core/theme/app_theme.dart';
-import 'package:flinterest/feature/auth/presentation/screens/login_screen.dart';
+import 'package:flinterest/feature/auth/presentation/screens/sign_up_wizard_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const SignUpWizardScreen(),
     );
   }
 }
