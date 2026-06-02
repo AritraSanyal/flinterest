@@ -24,6 +24,11 @@ class AppTheme {
         onSurfaceVariant: ac.AppColor.lightTextSubtle,
       ),
 
+      // bottom sheet color
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: ac.AppColor.lightModalBottomSheet,
+      ),
+
       // Text theme
       textTheme: GoogleFonts.googleSansFlexTextTheme(ThemeData.dark().textTheme)
           .apply(
@@ -76,12 +81,11 @@ class AppTheme {
           // --- normal elevated button ---
           backgroundColor: ac.AppColor.primaryBase,
           foregroundColor: ac.AppColor.darkTextDefault,
-
-          // --- diabled elevated button ---
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
+          textStyle: TextStyle(color: ac.AppColor.darkTextDefault),
         ),
       ),
 
@@ -120,27 +124,30 @@ class AppTheme {
   //=========================
   static ThemeData get darkTheme {
     return ThemeData(
+      useMaterial3: true,
+      splashFactory: NoSplash.splashFactory,
       brightness: Brightness.dark,
       scaffoldBackgroundColor: ac.AppColor.darkBackground,
 
-      // colorScheme
+      // dark colorScheme
       colorScheme: const ColorScheme.dark(
         primary: ac.AppColor.primaryBase,
         secondary: ac.AppColor.darkSecondaryBase,
         surface: ac.AppColor.darkBackground,
         onPrimary: Colors.white,
         onSecondary: ac.AppColor.darkTextDefault,
+        // add surface variant for container color
         onSurfaceVariant: ac.AppColor.darkTextSubtle,
       ),
 
-      // Text theme
+      // dark Text theme
       textTheme: GoogleFonts.googleSansFlexTextTheme(ThemeData.dark().textTheme)
           .apply(
             displayColor: ac.AppColor.darkTextDefault,
             bodyColor: ac.AppColor.darkTextDefault,
           ),
 
-      // appbar theme
+      // dark appbar theme
       appBarTheme: AppBarTheme(
         backgroundColor: ac.AppColor.darkBackground,
         elevation: 0,
@@ -152,7 +159,7 @@ class AppTheme {
         ),
       ),
 
-      //Input decoration Theme
+      // dark Input decoration Theme
       inputDecorationTheme: InputDecorationThemeData(
         contentPadding: EdgeInsetsGeometry.symmetric(
           horizontal: 13,
@@ -189,7 +196,7 @@ class AppTheme {
         hintStyle: const TextStyle(color: ac.AppColor.darkTextSubtle),
       ),
 
-      // ElevatedButton button theme
+      // dark ElevatedButton button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: ac.AppColor.primaryBase,
@@ -201,7 +208,7 @@ class AppTheme {
         ),
       ),
 
-      // OutlinedButton button theme
+      // dark OutlinedButton button theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           padding: EdgeInsetsGeometry.only(
@@ -220,13 +227,18 @@ class AppTheme {
         ),
       ),
 
-      // Divider theme
+      // dark Divider theme
       dividerTheme: DividerThemeData(
         color: ac.AppColor.darkDivider,
         space: 20,
         thickness: 1.2,
         indent: 20,
         endIndent: 20,
+      ),
+
+      // dark bottom sheet color
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: ac.AppColor.darkModalBottomSheet,
       ),
     );
   }
