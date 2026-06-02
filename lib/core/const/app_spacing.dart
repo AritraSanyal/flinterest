@@ -13,6 +13,7 @@ class AppSpacing {
   // ==========================
   // Horizontal spacing
   // ==========================
+  static const SizedBox gapHxs = SizedBox(width: 4);
   // between button and text; image and text
   static const SizedBox gapHsm = SizedBox(width: sm);
   // between buttons, images and text, comment/search/send field and buttons
