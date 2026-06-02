@@ -21,6 +21,7 @@ class AppTheme {
         error: ac.AppColor.statusError,
         onPrimary: Colors.white,
         onSecondary: ac.AppColor.lightTextDefault,
+        onSurfaceVariant: ac.AppColor.lightTextSubtle,
       ),
 
       // Text theme
@@ -129,6 +130,7 @@ class AppTheme {
         surface: ac.AppColor.darkBackground,
         onPrimary: Colors.white,
         onSecondary: ac.AppColor.darkTextDefault,
+        onSurfaceVariant: ac.AppColor.darkTextSubtle,
       ),
 
       // Text theme
