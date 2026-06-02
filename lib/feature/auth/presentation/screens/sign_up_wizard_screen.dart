@@ -252,9 +252,12 @@ class SignUpWizardShell extends StatelessWidget {
                       ),
                       child: Text(
                         'Next',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.bodyLarge?.copyWith(fontWeight: .w500),
+                        style: TextStyle(
+                          fontSize: Theme.of(
+                            context,
+                          ).textTheme.bodyLarge?.fontSize,
+                          fontWeight: .w400,
+                        ),
                       ),
                     ),
                   ),
