@@ -3,6 +3,8 @@ import 'package:flinterest/core/theme/app_color.dart' as ac;
 import 'package:flinterest/feature/auth/presentation/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:flinterest/feature/auth/presentation/widgets/picker_row.dart';
+import 'package:flinterest/feature/auth/presentation/widgets/signup_wizard_screen_shell.dart';
 
 class SignUpWizardScreen extends StatefulWidget {
   const SignUpWizardScreen({super.key});
@@ -11,94 +13,11 @@ class SignUpWizardScreen extends StatefulWidget {
   State<SignUpWizardScreen> createState() => _SignUpWizardScreenState();
 }
 
-//====================================
-// shell for all the wizard screens
-//====================================
-
-class SignUpWizardShell extends StatelessWidget {
-  final Widget child;
-  final double usableScreen;
-  final String title;
-  final VoidCallback onNext;
-  const SignUpWizardShell({
-    super.key,
-    required this.usableScreen,
-    required this.title,
-    required this.onNext,
-    required this.child,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: usableScreen,
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: .center,
-        children: [
-          sp.AppSpacing.gapVsm,
-          //====================================
-          // PageViewShell
-          //====================================
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  // --- Headline ---
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: 20,
-                      fontWeight: .w600,
-                    ),
-                  ),
-
-                  sp.AppSpacing.gapVmd,
-
-                  // --- child Widget Passed from screen---
-                  child,
-
-                  const Spacer(),
-
-                  // --- Next Button ---
-                  SizedBox(
-                    height: 50,
-                    width: double.infinity,
-
-                    child: ElevatedButton(
-                      onPressed: onNext,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: .circular(17),
-                        ),
-                      ),
-                      child: Text(
-                        'Next',
-                        style: TextStyle(
-                          fontSize: Theme.of(
-                            context,
-                          ).textTheme.bodyLarge?.fontSize,
-                          fontWeight: .w400,
-                        ),
-                      ),
-                    ),
-                  ),
-                  sp.AppSpacing.gapVmd,
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _SignUpWizardScreenState extends State<SignUpWizardScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _fullNameController = TextEditingController();
+  final DateTime _dateOfBirth = DateTime.now();
 
   //====================================
   // page controller
@@ -179,6 +98,11 @@ class _SignUpWizardScreenState extends State<SignUpWizardScreen> {
                   onPageChanged: (int newIndex) {
                     setState(() {
                       _currentPageIndex = newIndex;
+                      if (newIndex == 3) {
+                        Future.delayed(const Duration(milliseconds: 300), () {
+                          _showDateTimePicker();
+                        });
+                      }
                     });
                   },
 
@@ -222,6 +146,47 @@ class _SignUpWizardScreenState extends State<SignUpWizardScreen> {
                     ),
 
                     // --- step 4: Dob ---
+                    SignUpWizardShell(
+                      usableScreen: usableScreen,
+                      title:
+                          'Hi ${_fullNameController.text.trim().split(' ').first}! Enter Your date of birth',
+                      onNext: _nextPage,
+                      child: Column(
+                        children: [
+                          // policy text?
+                          Text(
+                            'To help keep Flinterest safe, we now require your date of birth. Your date of birth also helps\nus provide more personalised\nrecommendations and relevant ads. We won\'t share this information without your permission and it won\'t be visible on your profile.',
+                            textAlign: .center,
+                            softWrap: true,
+                            style: TextStyle(fontSize: 15),
+                          ),
+
+                          // Birthdate taker
+                          sp.AppSpacing.gapVsm,
+                          GestureDetector(
+                            onTap: _showDateTimePicker,
+                            child: Text(
+                              'something',
+                              style: Theme.of(context).textTheme.displayMedium
+                                  ?.copyWith(fontWeight: .w600),
+                            ),
+                          ),
+
+                          //footer thingie
+                          sp.AppSpacing.gapVmd,
+                          Text(
+                            'Use you own age, even if this is a business account',
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant
+                                      .withValues(alpha: 0.6),
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
 
                     // --- step 5: Gender ---
 
@@ -266,6 +231,61 @@ class _SignUpWizardScreenState extends State<SignUpWizardScreen> {
               )
             : null,
       ),
+    );
+  }
+
+  //====================================
+  // dateTime picker for DOB
+  //====================================
+  void _showDateTimePicker() {
+    final List<String> months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    final List<String> dates = List.generate(
+      31,
+      ((index) => (index + 1).toString()),
+    );
+    final List<String> years = List.generate(
+      127,
+      (((index) => (1900 + index).toString())),
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext sheetContext) {
+        return Dialog(
+          backgroundColor: Colors.white,
+          shape: const RoundedRectangleBorder(),
+          child: Container(
+            padding: EdgeInsets.all(16),
+            height: 300,
+            width: double.maxFinite,
+            child: Row(
+              children: [
+                // --- day picker ---
+                PickerRow(lists: dates),
+
+                // --- month picker ---
+                PickerRow(lists: months),
+
+                // --- year picker ---
+                PickerRow(lists: years),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
